@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Orbit Simulation</title>
+  <style>
+    body { margin:0; overflow:hidden; font-family:sans-serif; }
+    #ui { position:absolute; top:0; left:0; width:260px; height:100vh; background:rgba(0,0,0,0.7); color:white; padding:10px; box-sizing:border-box; transition:transform 0.3s; }
+    #ui.collapsed { transform:translateX(-240px); }
+    #toggle { position:absolute; top:10px; left:240px; width:20px; height:20px; background:#333; color:#fff; text-align:center; line-height:20px; cursor:pointer; }
+    label, button, select, input { display:block; width:100%; margin-bottom:8px; }
+  </style>
+</head>
+<body>
+  <div id="ui" class="collapsed">
+    <div id="toggle">»</div>
+    <h2>Simulation Control</h2>
+    <button id="reset">Reset</button>
+    <h3>Create Satellite</h3>
+    <label>Type
+      <select id="satType">
+        <option value="basic">일반 위성</option>
+        <option value="surface">지상 발사 위성</option>
+        <option value="external">외부 발사 위성</option>
+        <option value="static-basic">고정 궤도 일반 위성</option>
+        <option value="static-surface">고정 궤도 지상 발사 위성</option>
+      </select>
+    </label>
+    <label>Altitude <input type="number" id="altitude" value="5" /></label>
+    <label>Speed <input type="number" id="speed" value="1" /></label>
+    <button id="spawn">Spawn</button>
+  </div>
+  <canvas id="canvas"></canvas>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
